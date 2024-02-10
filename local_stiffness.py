@@ -78,4 +78,4 @@ def local_stiffness(elem_num):
             
 
 LK = local_stiffness(1)
-print(LK)
+# print(LK)
