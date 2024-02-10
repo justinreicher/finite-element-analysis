@@ -51,8 +51,8 @@ def local_stiffness(elem_num):
         return fi, fj, dfidx, dfjdx, dfidy, dfjdy
     
     kuu = np.zeros((4,4))
-    kuv = kuu
-    kvv = kuu
+    kuv = np.zeros((4,4))
+    kvv = np.zeros((4,4))
     for i in range(1,5):
         for j in range(1,5):
             fi, fj, dfidx, dfjdx, dfidy, dfjdy = get_shape_functions(i,j) # call function to determine what fi, fj, and their partial derivatives are
@@ -74,12 +74,8 @@ def local_stiffness(elem_num):
 
     # Use kuu, kuv, and kvv to form full local stiffness matrix
     LK = np.vstack((np.hstack((kuu, kuv)),np.hstack((kuv, kvv)))) # concatenates quadrant matrices
-    print(kuu)
-    print(kuv)
-    print(kvv)
     return LK
             
 
 LK = local_stiffness(1)
 print(LK)
-print(LK[0,7])
