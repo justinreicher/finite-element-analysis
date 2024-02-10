@@ -8,7 +8,7 @@ def local_stiffness(elem_num):
     element = input.ELEM[elem_num-1] # returns the proper row of the ELEM matrix, which contains the associated nodes
     n1 = element[0] # bottom left node
     n2 = element[1] # bottom right node
-    n3 = element[2] # top right node
+    n3 = element[2] # top right node - MIGHT NOT NEED
     n4 = element[3] # top left node
     a = input.NODE[n2][0] - input.NODE[n1][0] # subtract the x coordinate of n1 from the x coordinate of n2 to get x length of element
     b = input.NODE[n4][1] - input.NODE[n1][1] # subtract the y coordinate of n1 from the y coordinate of n4 to get y length of element
