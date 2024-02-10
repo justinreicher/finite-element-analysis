@@ -73,7 +73,7 @@ def local_stiffness(elem_num):
             kvv[i-1,j-1] = multiplier * I2vv # set the given value within the coefficient matrix
 
     # Use kuu, kuv, and kvv to form full local stiffness matrix
-    LK = np.vstack((np.hstack((kuu, kuv)),np.hstack((kuv, kvv))))
+    LK = np.vstack((np.hstack((kuu, kuv)),np.hstack((kuv, kvv)))) # concatenates quadrant matrices
     print(kuu)
     print(kuv)
     print(kvv)
