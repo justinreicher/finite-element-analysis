@@ -12,7 +12,7 @@ def global_stiffness(): # defines a function to be called to calculate the globa
                 ii = element[i-1] # sets the GK row index ii to be the node number of the given LK row 
             else: # within the bottom half or Fy portion of the local stiffness matrix
                 i -= 4 # subtracts 4 from i so now Fy1 through Fy4 can be examined
-                ii = element[i-1] + ip.tnnd # adds the total number of elements to account for the shift to the bottom half of GK
+                ii = element[i-1] + ip.tnnd # adds the total number of nodes to account for the shift to the bottom half of GK
             for j in range(1,9): # iterates from j = 1:8 for 2D
                 if j <= 4: # within the left half or u portion of the local stiffness matrix
                     jj = element[j-1] # sets the GK column index jj to be the node number of the given LK column 
