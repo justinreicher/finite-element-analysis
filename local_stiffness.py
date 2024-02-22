@@ -25,7 +25,7 @@ def local_stiffness(elem_num): # for a given element number, will return LK as a
         dfidx = sp.diff(fi,x) # get partial derivative dfi/dx
         dfjdx = sp.diff(fj,x) # get partial derivative dfj/dx
         dfidy = sp.diff(fi,y) # get partial derivative dfi/dy
-        dfjdy = sp.diff(fj,x) # get partial derivative dfj/dy
+        dfjdy = sp.diff(fj,y) # get partial derivative dfj/dy
         return dfidx, dfjdx, dfidy, dfjdy
     
     def double_integral(integrand): # function used to symbolically integrate from 0 to a WRT x, then from 0 to b WRT y
@@ -36,7 +36,7 @@ def local_stiffness(elem_num): # for a given element number, will return LK as a
     kuu = np.zeros((4,4)) # intialize kuu quadrant matrix
     kuv = np.zeros((4,4)) # intialize kuv quadrant matrix
     kvv = np.zeros((4,4)) # intialize kvv quadrant matrix
-    multiplier = input.t * E/(1-Nu**2) # calculate constant that is multiplied by each stiffness matrix value
+    multiplier = input.t * E/(1-(Nu**2)) # calculate constant that is multiplied by each stiffness matrix value
     for i in range(1,5): # iterates through each relative index location in the four quadrant matrices of the local stiffness matrix  
         for j in range(1,5):
             dfidx, dfjdx, dfidy, dfjdy = get_shape_functions(i,j) # call function to determine what fi, fj, and their partial derivatives are
@@ -45,3 +45,4 @@ def local_stiffness(elem_num): # for a given element number, will return LK as a
             kvv[i-1,j-1] = multiplier * double_integral((Nu*dfidx*dfjdy) + (((1-Nu)/2)*dfidy*dfjdx)) # set the given value within the coefficient matrix for kvv
     LK = np.block([[kuu, kuv], [kuv, kvv]]) # Use kuu, kuv, and kvv to form full local stiffness matrix by concatenates quadrant matrices
     return LK
+print(local_stiffness(1))
