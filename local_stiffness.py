@@ -76,6 +76,8 @@ if __name__ == "__main__":
     """
     will only run when the script is executed directly, not when it's imported as a module in global_stiffness.py
     """
-    # test the local_stiffness function by calculating the local stiffness matrix for element # 1
+    # test the local_stiffness function by calculating the local stiffness matrix for element #1
     LK = local_stiffness(1)
+
+    # print the local stiffness matrix for element #1
     print("Local Stiffness Matrix (LK) for element #1:\n", LK)

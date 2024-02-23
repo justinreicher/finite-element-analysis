@@ -54,4 +54,6 @@ if __name__ == "__main__":
     GK = global_stiffness()
     
     # print the global stiffness matrix
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
     print("Global stiffness matrix (GK):\n", pd.DataFrame(GK))
