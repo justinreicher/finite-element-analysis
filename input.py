@@ -1,6 +1,8 @@
+"""module for defining input parameters"""
+
 import numpy as np
 
-# Input node matrix, where each row represents the [x,y] coordinates of that node
+# input node matrix, where each row represents the [x,y] coordinates of that node
 NODE = np.array([
     [0,0], 
     [0,2], 
@@ -19,10 +21,11 @@ NODE = np.array([
     [15,2],
     [15,4] 
     ])
+
 tnnd = len(NODE) # total number of nodes
 
-# Input element matrix that establishes element-node connectivity
-# Each row represents an element: [bottom left, bottom right, top right, top left] 
+# input element matrix that establishes element-node connectivity
+# each row represents an element: [bottom left, bottom right, top right, top left] 
 ELEM = np.array([
     [1,4,5,2], 
     [2,5,6,3], 
@@ -31,7 +34,8 @@ ELEM = np.array([
     [9,12,13,10],
     [12,15,16,13],
     [11,14,15,12]  
-    ])
+])
+
 tnel = len(ELEM) # total number of elements
 
 # Young's Modulus of each element
@@ -43,7 +47,7 @@ E = np.array([
     10e6,
     10e6,
     10e6
-    ])
+])
 
 # Poisson's ratio of each element
 Nu = np.array([
@@ -54,7 +58,7 @@ Nu = np.array([
     .3,
     .3,
     .3
-    ])
+])
 
-# Thickness of 2D element
+# thickness of 2D element
 t = .1

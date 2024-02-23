@@ -14652,7 +14652,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">input</span> <span class="c1"># import input module with NODE, ELEM matrices and other parameters</span>
@@ -14682,7 +14682,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="n">dfidx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># get partial derivative dfi/dx</span>
         <span class="n">dfjdx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># get partial derivative dfj/dx</span>
         <span class="n">dfidy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># get partial derivative dfi/dy</span>
-        <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># get partial derivative dfj/dy</span>
+        <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># get partial derivative dfj/dy</span>
         <span class="k">return</span> <span class="n">dfidx</span><span class="p">,</span> <span class="n">dfjdx</span><span class="p">,</span> <span class="n">dfidy</span><span class="p">,</span> <span class="n">dfjdy</span>
     
     <span class="k">def</span> <span class="nf">double_integral</span><span class="p">(</span><span class="n">integrand</span><span class="p">):</span> <span class="c1"># function used to symbolically integrate from 0 to a WRT x, then from 0 to b WRT y</span>
@@ -14693,7 +14693,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="n">kuu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kuu quadrant matrix</span>
     <span class="n">kuv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kuv quadrant matrix</span>
     <span class="n">kvv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kvv quadrant matrix</span>
-    <span class="n">multiplier</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Nu</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># calculate constant that is multiplied by each stiffness matrix value</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">Nu</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># calculate constant that is multiplied by each stiffness matrix value</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># iterates through each relative index location in the four quadrant matrices of the local stiffness matrix  </span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
             <span class="n">dfidx</span><span class="p">,</span> <span class="n">dfjdx</span><span class="p">,</span> <span class="n">dfidy</span><span class="p">,</span> <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">get_shape_functions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="c1"># call function to determine what fi, fj, and their partial derivatives are</span>
@@ -14714,7 +14714,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">input</span> <span class="k">as</span> <span class="nn">ip</span>
@@ -14752,7 +14752,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">global_stiffness</span> <span class="k">as</span> <span class="nn">gs</span>
@@ -14780,7 +14780,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
 
@@ -14829,48 +14829,48 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   <tbody>
     <tr>
       <th>0</th>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
       <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>-148046.398046</td>
       <td>-218253.968254</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>25946.275946</td>
-      <td>-244200.244200</td>
+      <td>-70207.570208</td>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
-      <td>244200.244200</td>
-      <td>148046.398046</td>
+      <td>-148046.398046</td>
+      <td>-218253.968254</td>
+      <td>292277.167277</td>
+      <td>2.922772e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -14878,23 +14878,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>2</th>
       <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>-148046.398046</td>
       <td>-584554.334554</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -14902,23 +14902,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>3</th>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
+      <td>-218253.968254</td>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -14926,23 +14926,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>4</th>
       <td>-218253.968254</td>
-      <td>244200.244200</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-392246.642247</td>
-      <td>-366300.366300</td>
+      <td>292277.167277</td>
+      <td>292277.167277</td>
+      <td>-70207.570208</td>
+      <td>-584554.334554</td>
+      <td>-7.783883e+04</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -14950,23 +14950,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>5</th>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>292277.167277</td>
+      <td>440323.565324</td>
       <td>0.000000</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-77838.827839</td>
+      <td>-1.021062e+06</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>148046.398046</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>148046.398046</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -14977,20 +14977,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-488400.488400</td>
-      <td>-244200.244200</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>2.182540e+05</td>
+      <td>-873015.873016</td>
+      <td>140415.140415</td>
+      <td>1.480464e+05</td>
+      <td>2.182540e+05</td>
       <td>...</td>
-      <td>-488400.488400</td>
-      <td>-244200.244200</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>-873015.873016</td>
+      <td>140415.140415</td>
+      <td>1.480464e+05</td>
+      <td>2.182540e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15001,20 +15001,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>25946.275946</td>
-      <td>148046.398046</td>
-      <td>-244200.244200</td>
-      <td>-488400.488400</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>1.480464e+05</td>
+      <td>140415.140415</td>
+      <td>-873015.873016</td>
+      <td>2.182540e+05</td>
+      <td>1.480464e+05</td>
       <td>...</td>
-      <td>-244200.244200</td>
-      <td>-488400.488400</td>
-      <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>140415.140415</td>
+      <td>-873015.873016</td>
+      <td>2.182540e+05</td>
+      <td>1.480464e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15026,19 +15026,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-732600.732601</td>
-      <td>-366300.366300</td>
-      <td>...</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-732600.732601</td>
-      <td>-366300.366300</td>
-      <td>0.000000</td>
-      <td>392246.642247</td>
+      <td>0.000000e+00</td>
       <td>148046.398046</td>
+      <td>218253.968254</td>
+      <td>-1.021062e+06</td>
+      <td>-7.783883e+04</td>
+      <td>...</td>
+      <td>148046.398046</td>
+      <td>218253.968254</td>
+      <td>-1.021062e+06</td>
+      <td>-7.783883e+04</td>
+      <td>0.000000</td>
+      <td>440323.565324</td>
+      <td>2.922772e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15050,19 +15050,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>25946.275946</td>
+      <td>0.000000e+00</td>
+      <td>218253.968254</td>
       <td>148046.398046</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-7.783883e+04</td>
+      <td>-1.021062e+06</td>
       <td>...</td>
-      <td>25946.275946</td>
+      <td>218253.968254</td>
       <td>148046.398046</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-7.783883e+04</td>
+      <td>-1.021062e+06</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15074,20 +15074,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
+      <td>0.000000e+00</td>
+      <td>-148046.398046</td>
       <td>-218253.968254</td>
       <td>0.000000</td>
     </tr>
@@ -15098,22 +15098,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>584554.334554</td>
-      <td>340354.090354</td>
+      <td>4.403236e+05</td>
+      <td>2.922772e+05</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>584554.334554</td>
-      <td>340354.090354</td>
-      <td>25946.275946</td>
-      <td>-828754.578755</td>
-      <td>-488400.488400</td>
-      <td>-25946.275946</td>
-      <td>244200.244200</td>
-      <td>148046.398046</td>
+      <td>4.403236e+05</td>
+      <td>2.922772e+05</td>
+      <td>-70207.570208</td>
+      <td>-732600.732601</td>
+      <td>-2.960928e+05</td>
+      <td>-218253.968254</td>
+      <td>292277.167277</td>
+      <td>292277.167277</td>
     </tr>
     <tr>
       <th>12</th>
@@ -15122,22 +15122,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>2.922772e+05</td>
+      <td>4.403236e+05</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>2.922772e+05</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
-      <td>-488400.488400</td>
-      <td>-976800.976801</td>
+      <td>-296092.796093</td>
+      <td>-1.169109e+06</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>440323.565324</td>
     </tr>
     <tr>
       <th>13</th>
@@ -15146,21 +15146,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>-218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -15170,22 +15170,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>-218253.968254</td>
-      <td>244200.244200</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-244200.244200</td>
-      <td>-340354.090354</td>
+      <td>292277.167277</td>
+      <td>2.922772e+05</td>
+      <td>-70207.570208</td>
+      <td>-148046.398046</td>
+      <td>-148046.398046</td>
     </tr>
     <tr>
       <th>15</th>
@@ -15194,67 +15194,67 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>-148046.398046</td>
-      <td>-392246.642247</td>
+      <td>-584554.334554</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
       <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>-148046.398046</td>
       <td>-218253.968254</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>25946.275946</td>
-      <td>-244200.244200</td>
+      <td>-70207.570208</td>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
-      <td>244200.244200</td>
-      <td>148046.398046</td>
+      <td>-148046.398046</td>
+      <td>-218253.968254</td>
+      <td>292277.167277</td>
+      <td>2.922772e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15262,23 +15262,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>18</th>
       <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>-148046.398046</td>
       <td>-584554.334554</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15286,23 +15286,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>19</th>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
+      <td>-218253.968254</td>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15310,23 +15310,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>20</th>
       <td>-218253.968254</td>
-      <td>244200.244200</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-392246.642247</td>
-      <td>-366300.366300</td>
+      <td>292277.167277</td>
+      <td>292277.167277</td>
+      <td>-70207.570208</td>
+      <td>-584554.334554</td>
+      <td>-7.783883e+04</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15334,23 +15334,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>21</th>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>292277.167277</td>
+      <td>440323.565324</td>
       <td>0.000000</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-77838.827839</td>
+      <td>-1.021062e+06</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>148046.398046</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>148046.398046</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15361,20 +15361,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-488400.488400</td>
-      <td>-244200.244200</td>
       <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>2.182540e+05</td>
+      <td>-873015.873016</td>
+      <td>140415.140415</td>
+      <td>1.480464e+05</td>
+      <td>2.182540e+05</td>
       <td>...</td>
-      <td>-488400.488400</td>
-      <td>-244200.244200</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>-873015.873016</td>
+      <td>140415.140415</td>
+      <td>1.480464e+05</td>
+      <td>2.182540e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15385,20 +15385,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>25946.275946</td>
-      <td>148046.398046</td>
-      <td>-244200.244200</td>
-      <td>-488400.488400</td>
       <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>1.480464e+05</td>
+      <td>140415.140415</td>
+      <td>-873015.873016</td>
+      <td>2.182540e+05</td>
+      <td>1.480464e+05</td>
       <td>...</td>
-      <td>-244200.244200</td>
-      <td>-488400.488400</td>
-      <td>218253.968254</td>
-      <td>340354.090354</td>
+      <td>140415.140415</td>
+      <td>-873015.873016</td>
+      <td>2.182540e+05</td>
+      <td>1.480464e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15410,19 +15410,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-732600.732601</td>
-      <td>-366300.366300</td>
-      <td>...</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-732600.732601</td>
-      <td>-366300.366300</td>
-      <td>0.000000</td>
-      <td>392246.642247</td>
+      <td>0.000000e+00</td>
       <td>148046.398046</td>
+      <td>218253.968254</td>
+      <td>-1.021062e+06</td>
+      <td>-7.783883e+04</td>
+      <td>...</td>
+      <td>148046.398046</td>
+      <td>218253.968254</td>
+      <td>-1.021062e+06</td>
+      <td>-7.783883e+04</td>
+      <td>0.000000</td>
+      <td>440323.565324</td>
+      <td>2.922772e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15434,19 +15434,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>25946.275946</td>
+      <td>0.000000e+00</td>
+      <td>218253.968254</td>
       <td>148046.398046</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-7.783883e+04</td>
+      <td>-1.021062e+06</td>
       <td>...</td>
-      <td>25946.275946</td>
+      <td>218253.968254</td>
       <td>148046.398046</td>
-      <td>-366300.366300</td>
-      <td>-732600.732601</td>
+      <td>-7.783883e+04</td>
+      <td>-1.021062e+06</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -15458,20 +15458,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>0.000000</td>
-      <td>-340354.090354</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
+      <td>0.000000e+00</td>
+      <td>-148046.398046</td>
       <td>-218253.968254</td>
       <td>0.000000</td>
     </tr>
@@ -15482,22 +15482,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>584554.334554</td>
-      <td>340354.090354</td>
+      <td>4.403236e+05</td>
+      <td>2.922772e+05</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>584554.334554</td>
-      <td>340354.090354</td>
-      <td>25946.275946</td>
-      <td>-828754.578755</td>
-      <td>-488400.488400</td>
-      <td>-25946.275946</td>
-      <td>244200.244200</td>
-      <td>148046.398046</td>
+      <td>4.403236e+05</td>
+      <td>2.922772e+05</td>
+      <td>-70207.570208</td>
+      <td>-732600.732601</td>
+      <td>-2.960928e+05</td>
+      <td>-218253.968254</td>
+      <td>292277.167277</td>
+      <td>292277.167277</td>
     </tr>
     <tr>
       <th>28</th>
@@ -15506,22 +15506,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>2.922772e+05</td>
+      <td>4.403236e+05</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>2.922772e+05</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
-      <td>-488400.488400</td>
-      <td>-976800.976801</td>
+      <td>-296092.796093</td>
+      <td>-1.169109e+06</td>
       <td>0.000000</td>
-      <td>340354.090354</td>
-      <td>584554.334554</td>
+      <td>292277.167277</td>
+      <td>440323.565324</td>
     </tr>
     <tr>
       <th>29</th>
@@ -15530,21 +15530,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>-148046.398046</td>
-      <td>-25946.275946</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>25946.275946</td>
+      <td>-218253.968254</td>
+      <td>0.000000e+00</td>
+      <td>436507.936508</td>
+      <td>-70207.570208</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -15554,22 +15554,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>-218253.968254</td>
-      <td>244200.244200</td>
-      <td>340354.090354</td>
-      <td>218253.968254</td>
-      <td>-244200.244200</td>
-      <td>-340354.090354</td>
+      <td>292277.167277</td>
+      <td>2.922772e+05</td>
+      <td>-70207.570208</td>
+      <td>-148046.398046</td>
+      <td>-148046.398046</td>
     </tr>
     <tr>
       <th>31</th>
@@ -15578,22 +15578,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>148046.398046</td>
-      <td>392246.642247</td>
+      <td>292277.167277</td>
+      <td>4.403236e+05</td>
       <td>0.000000</td>
       <td>-148046.398046</td>
-      <td>-392246.642247</td>
+      <td>-584554.334554</td>
     </tr>
   </tbody>
 </table>
