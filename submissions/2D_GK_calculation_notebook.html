@@ -14577,12 +14577,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""module for defining input parameters"""</span>
 
-<span class="c1"># Input node matrix, where each row represents the [x,y] coordinates of that node</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># input node matrix, where each row represents the [x,y] coordinates of that node</span>
 <span class="n">NODE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> 
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> 
@@ -14601,10 +14603,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> 
     <span class="p">])</span>
+
 <span class="n">tnnd</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE</span><span class="p">)</span> <span class="c1"># total number of nodes</span>
 
-<span class="c1"># Input element matrix that establishes element-node connectivity</span>
-<span class="c1"># Each row represents an element: [bottom left, bottom right, top right, top left] </span>
+<span class="c1"># input element matrix that establishes element-node connectivity</span>
+<span class="c1"># each row represents an element: [bottom left, bottom right, top right, top left] </span>
 <span class="n">ELEM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> 
     <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> 
@@ -14613,7 +14616,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">13</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>  
-    <span class="p">])</span>
+<span class="p">])</span>
+
 <span class="n">tnel</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ELEM</span><span class="p">)</span> <span class="c1"># total number of elements</span>
 
 <span class="c1"># Young's Modulus of each element</span>
@@ -14625,7 +14629,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="mf">10e6</span><span class="p">,</span>
     <span class="mf">10e6</span><span class="p">,</span>
     <span class="mf">10e6</span>
-    <span class="p">])</span>
+<span class="p">])</span>
 
 <span class="c1"># Poisson's ratio of each element</span>
 <span class="n">Nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -14636,9 +14640,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="mf">.3</span><span class="p">,</span>
     <span class="mf">.3</span><span class="p">,</span>
     <span class="mf">.3</span>
-    <span class="p">])</span>
+<span class="p">])</span>
 
-<span class="c1"># Thickness of 2D element</span>
+<span class="c1"># thickness of 2D element</span>
 <span class="n">t</span> <span class="o">=</span> <span class="mf">.1</span>
 </pre></div>
 
@@ -14652,55 +14656,80 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">input</span> <span class="c1"># import input module with NODE, ELEM matrices and other parameters</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""module for computing local stiffness matrices"""</span>
+
+<span class="kn">import</span> <span class="nn">input</span> <span class="c1"># import input module with NODE, ELEM matrices and other parameters</span>
 <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="k">def</span> <span class="nf">local_stiffness</span><span class="p">(</span><span class="n">elem_num</span><span class="p">):</span> <span class="c1"># for a given element number, will return LK as a matrix</span>
+<span class="k">def</span> <span class="nf">local_stiffness</span><span class="p">(</span><span class="n">elem_num</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    calculate the local stiffness matrix for a given element number.</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        elem_num (int): the element number of interest</span>
+<span class="sd">    </span>
+<span class="sd">    returns:</span>
+<span class="sd">        numpy.ndarray: the local stiffness matrix for the element of interest</span>
+<span class="sd">    """</span>
+    <span class="c1"># material properites and element node connectivity</span>
     <span class="n">E</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">E</span><span class="p">[</span><span class="n">elem_num</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">Nu</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Nu</span><span class="p">[</span><span class="n">elem_num</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">element</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">ELEM</span><span class="p">[</span><span class="n">elem_num</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># returns the proper row of the ELEM matrix, which contains the associated nodes</span>
-    <span class="n">n1</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># bottom left node</span>
-    <span class="n">n2</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># bottom right node</span>
-    <span class="n">n4</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># top left node</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">n4</span> <span class="o">=</span> <span class="n">element</span> <span class="c1"># saves the bottom left, bottom right, and top left node numbers</span>
+
+    <span class="c1"># calculate element dimensions</span>
     <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">NODE</span><span class="p">[</span><span class="n">n2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nb">input</span><span class="o">.</span><span class="n">NODE</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># subtract the x coordinate of n1 from the x coordinate of n2 to get x length of element</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">NODE</span><span class="p">[</span><span class="n">n4</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">input</span><span class="o">.</span><span class="n">NODE</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># subtract the y coordinate of n1 from the y coordinate of n4 to get y length of element</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span> <span class="c1"># define x symbolically</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span> <span class="c1"># define y symbolically</span>
-    <span class="n">f1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">a</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">b</span><span class="p">))</span> <span class="c1"># first shape function for 8 DOF rectangular plane stress/plane strain finite element</span>
-    <span class="n">f2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">b</span><span class="p">))</span> <span class="c1"># second shape function for 8 DOF rectangular plane stress/plane strain finite element</span>
-    <span class="n">f3</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="c1"># third shape function for 8 DOF rectangular plane stress/plane strain finite element</span>
-    <span class="n">f4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">a</span><span class="p">))</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">b</span> <span class="c1"># fourth shape function for 8 DOF rectangular plane stress/plane strain finite element</span>
-    <span class="n">shape_function_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">,</span> <span class="n">f4</span><span class="p">]</span> <span class="c1"># create a list so the shape functions can be indexed</span>
+
+    <span class="c1"># initialize symbolic variables x and y</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+
+    <span class="c1"># define shape functions for 8 DOF rectangular plane stress/strain finite element</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">f3</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">f4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">shape_function_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">,</span> <span class="n">f4</span><span class="p">]</span>
     
-    <span class="k">def</span> <span class="nf">get_shape_functions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span> <span class="c1"># function used within each of the 3 equations to determine fi and fj and their partial derivatives</span>
-        <span class="n">fi</span> <span class="o">=</span> <span class="n">shape_function_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># pulls proper shape function for fi</span>
-        <span class="n">fj</span> <span class="o">=</span> <span class="n">shape_function_list</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># pulls proper shape function for fj</span>
-        <span class="n">dfidx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># get partial derivative dfi/dx</span>
-        <span class="n">dfjdx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># get partial derivative dfj/dx</span>
-        <span class="n">dfidy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># get partial derivative dfi/dy</span>
-        <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># get partial derivative dfj/dy</span>
+    <span class="k">def</span> <span class="nf">get_shape_functions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
+        <span class="sd">"""return the shape function's partial derivatives"""</span>
+        <span class="n">fi</span> <span class="o">=</span> <span class="n">shape_function_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">fj</span> <span class="o">=</span> <span class="n">shape_function_list</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dfidx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># dfi/dx</span>
+        <span class="n">dfjdx</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># dfj/dx</span>
+        <span class="n">dfidy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># dfi/dy</span>
+        <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fj</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># dfj/dy</span>
         <span class="k">return</span> <span class="n">dfidx</span><span class="p">,</span> <span class="n">dfjdx</span><span class="p">,</span> <span class="n">dfidy</span><span class="p">,</span> <span class="n">dfjdy</span>
     
-    <span class="k">def</span> <span class="nf">double_integral</span><span class="p">(</span><span class="n">integrand</span><span class="p">):</span> <span class="c1"># function used to symbolically integrate from 0 to a WRT x, then from 0 to b WRT y</span>
+    <span class="k">def</span> <span class="nf">double_integral</span><span class="p">(</span><span class="n">integrand</span><span class="p">):</span>
+        <span class="sd">"""symbolic double integration over the area of the 2D element"""</span>
         <span class="n">I1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">integrand</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span> <span class="c1">#integrate with respect to x</span>
         <span class="n">solved_integral</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1">#integrate with respect to y</span>
         <span class="k">return</span> <span class="n">solved_integral</span>
 
-    <span class="n">kuu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kuu quadrant matrix</span>
-    <span class="n">kuv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kuv quadrant matrix</span>
-    <span class="n">kvv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># intialize kvv quadrant matrix</span>
-    <span class="n">multiplier</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">Nu</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># calculate constant that is multiplied by each stiffness matrix value</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># iterates through each relative index location in the four quadrant matrices of the local stiffness matrix  </span>
+    <span class="c1"># initialize quadrant kuu, kuv, and kvv matrices</span>
+    <span class="n">kuu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">kuv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">kvv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+    <span class="c1"># calculate constant that is pulled out of the area integrals</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">t</span> <span class="o">*</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">Nu</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># compute the local stiffness matrix by iterating through each relative index location in the four quadrant matrices of the local stiffness matrix  </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
-            <span class="n">dfidx</span><span class="p">,</span> <span class="n">dfjdx</span><span class="p">,</span> <span class="n">dfidy</span><span class="p">,</span> <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">get_shape_functions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="c1"># call function to determine what fi, fj, and their partial derivatives are</span>
-            <span class="n">kuu</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">dfidx</span><span class="o">*</span><span class="n">dfjdx</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span><span class="o">-</span><span class="n">Nu</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dfidy</span><span class="o">*</span><span class="n">dfjdy</span><span class="p">))</span> <span class="c1"># set the given value within the coefficient matrix for kuu</span>
-            <span class="n">kuv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">dfidy</span><span class="o">*</span><span class="n">dfjdy</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span><span class="o">-</span><span class="n">Nu</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dfidx</span><span class="o">*</span><span class="n">dfjdx</span><span class="p">))</span> <span class="c1"># set the given value within the coefficient matrix for kuv</span>
-            <span class="n">kvv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">Nu</span><span class="o">*</span><span class="n">dfidx</span><span class="o">*</span><span class="n">dfjdy</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span><span class="o">-</span><span class="n">Nu</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dfidy</span><span class="o">*</span><span class="n">dfjdx</span><span class="p">))</span> <span class="c1"># set the given value within the coefficient matrix for kvv</span>
-    <span class="n">LK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">kuu</span><span class="p">,</span> <span class="n">kuv</span><span class="p">],</span> <span class="p">[</span><span class="n">kuv</span><span class="p">,</span> <span class="n">kvv</span><span class="p">]])</span> <span class="c1"># Use kuu, kuv, and kvv to form full local stiffness matrix by concatenates quadrant matrices</span>
+            <span class="n">dfidx</span><span class="p">,</span> <span class="n">dfjdx</span><span class="p">,</span> <span class="n">dfidy</span><span class="p">,</span> <span class="n">dfjdy</span> <span class="o">=</span> <span class="n">get_shape_functions</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="c1"># determine shape function partial derivatives</span>
+            <span class="n">kuu</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">dfidx</span> <span class="o">*</span> <span class="n">dfjdx</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Nu</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dfidy</span> <span class="o">*</span> <span class="n">dfjdy</span><span class="p">))</span>
+            <span class="n">kvv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">dfidy</span> <span class="o">*</span> <span class="n">dfjdy</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Nu</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dfidx</span> <span class="o">*</span> <span class="n">dfjdx</span><span class="p">))</span>
+            <span class="n">kuv</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">double_integral</span><span class="p">((</span><span class="n">Nu</span> <span class="o">*</span> <span class="n">dfidx</span> <span class="o">*</span> <span class="n">dfjdy</span><span class="p">)</span> <span class="o">+</span> <span class="p">(((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Nu</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dfidy</span> <span class="o">*</span> <span class="n">dfjdx</span><span class="p">))</span>
+
+    <span class="c1"># form full local stiffness matrix by concatenating quadrant matrices</span>
+    <span class="n">LK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">kuu</span><span class="p">,</span> <span class="n">kuv</span><span class="p">],</span> <span class="p">[</span><span class="n">kuv</span><span class="p">,</span> <span class="n">kvv</span><span class="p">]])</span> 
     <span class="k">return</span> <span class="n">LK</span>
 </pre></div>
 
@@ -14714,32 +14743,66 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">input</span> <span class="k">as</span> <span class="nn">ip</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""module for computing the global stiffness matrix"""</span>
+
+<span class="kn">import</span> <span class="nn">input</span> <span class="k">as</span> <span class="nn">ip</span>
 <span class="kn">import</span> <span class="nn">local_stiffness</span> <span class="k">as</span> <span class="nn">lk</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="k">def</span> <span class="nf">global_stiffness</span><span class="p">():</span> <span class="c1"># defines a function to be called to calculate the global stiffness matrix</span>
-    <span class="n">GK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span><span class="p">))</span> <span class="c1"># initialize global stiffness matrix</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ip</span><span class="o">.</span><span class="n">tnel</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># iterates from k = 1:tnel</span>
-        <span class="n">LK</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">local_stiffness</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>  <span class="c1"># precompute local stiffness matrix by calling the local_stiffness function within the local_stiffness module and determining LK at element #k</span>
-        <span class="n">element</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">ELEM</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># predefines the element row</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="c1"># iterates from i = 1:8 for 2D</span>
+    <span class="sd">"""</span>
+<span class="sd">    calculate the global stiffness matrix</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        numpy.ndarray: the global stiffness matrix</span>
+<span class="sd">    """</span>
+    <span class="c1"># initialize global stiffness matrix</span>
+    <span class="n">GK</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span><span class="p">))</span>
+
+    <span class="c1"># iterate through each element and store its contribution to the global stiffness matrix</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ip</span><span class="o">.</span><span class="n">tnel</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># precompute the local stiffness matrix</span>
+        <span class="n">LK</span> <span class="o">=</span> <span class="n">lk</span><span class="o">.</span><span class="n">local_stiffness</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>  
+
+        <span class="c1"># determine element node connectivity</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">ELEM</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># iterate through all 8 DOF of the element</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+            <span class="c1"># determine the row index (ii) in the global stiffness matrix</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span> <span class="c1"># within upper half or Fx portion of the local stiffness matrix</span>
                 <span class="n">ii</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># sets the GK row index ii to be the node number of the given LK row </span>
             <span class="k">else</span><span class="p">:</span> <span class="c1"># within the bottom half or Fy portion of the local stiffness matrix</span>
                 <span class="n">i</span> <span class="o">-=</span> <span class="mi">4</span> <span class="c1"># subtracts 4 from i so now Fy1 through Fy4 can be examined</span>
                 <span class="n">ii</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span> <span class="c1"># adds the total number of nodes to account for the shift to the bottom half of GK</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="c1"># iterates from j = 1:8 for 2D</span>
+            
+            <span class="c1"># iterate through all 8 DOF of the element</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+                <span class="c1"># determine the column index (jj) in the global stiffness matrix</span>
                 <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span> <span class="c1"># within the left half or u portion of the local stiffness matrix</span>
                     <span class="n">jj</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># sets the GK column index jj to be the node number of the given LK column </span>
                 <span class="k">else</span><span class="p">:</span> <span class="c1"># within the right half or v portion of the local stiffness matrix</span>
                     <span class="n">j</span> <span class="o">-=</span> <span class="mi">4</span> <span class="c1"># subtracts 4 from j so now v1 through v4 can be examined</span>
                     <span class="n">jj</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ip</span><span class="o">.</span><span class="n">tnnd</span> <span class="c1"># adds the total number of elements to account for the shift to the right half of GK</span>
+                
+                <span class="c1"># add the contribution of the local stiffness matrix to the current value in the global stiffness matrix at the computed indeces</span>
                 <span class="n">GK</span><span class="p">[</span><span class="n">ii</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">jj</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">LK</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># adds LK(i,j) to current value in GK</span>
+    
     <span class="k">return</span> <span class="n">GK</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    will only run when the script is executed directly, not when it's imported as a module in another script</span>
+<span class="sd">    """</span>
+    <span class="c1"># calculate the global stiffness matrix</span>
+    <span class="n">GK</span> <span class="o">=</span> <span class="n">global_stiffness</span><span class="p">()</span>
+
+    <span class="c1"># convert the global stiffness matrix to a data frame for visualization</span>
+    <span class="n">gk_visualization</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">GK</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14752,16 +14815,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">global_stiffness</span> <span class="k">as</span> <span class="nn">gs</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">GK</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">global_stiffness</span><span class="p">()</span> <span class="c1"># calls the global_stiffness function within the global_stiffness module to obtain the global stiffness matrix, GK</span>
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
-<span class="n">gk_visualization</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">GK</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Global stiffness matrix (GK):</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">gk_visualization</span>
 </pre></div>
 
@@ -14780,7 +14837,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Global stiffness matrix (GK):
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
